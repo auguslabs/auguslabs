@@ -198,6 +198,9 @@ body {
   #logo-block {
     padding: 5px; /* reduced padding for mobile */
   }
+  #phrases-block{
+    padding: 3px 6px;
+  }
 }
 
 
