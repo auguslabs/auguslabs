@@ -63,7 +63,7 @@ body {
 
 #gears-block {
   display: grid;
-  gap: 20px;
+  gap: 12px; /* reduced gap between gears and progress */
   justify-items: center; /* center horizontally */
   background: #ffffff; /* white background for gears section */
 }
@@ -126,7 +126,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 90px;
+  min-height: 70px; /* reduced height */
+  padding: 12px 20px; /* reduced padding */
   transition: background 600ms ease; /* smooth color change */
 }
 
@@ -134,10 +135,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 70px;
+  min-height: 50px; /* reduced height for mobile */
   background: transparent; /* remains transparent */
   border: none; /* remove subtle border */
-  padding: 8px 0; /* tighter spacing */
+  padding: 4px 0; /* even tighter spacing */
   overflow: hidden; /* hide slide in/out */
 }
 
@@ -175,10 +176,24 @@ body {
 }
 
 @media (max-width: 640px) {
+  #inner {
+    gap: 16px; /* smaller gap on mobile */
+  }
+  
   .gears { height: 180px; width: 280px; }
   .gear-lg { left: 4px; top: 24px; width: 130px; height: 130px; }
   .gear-md { left: 120px; top: 6px; width: 100px; height: 100px; }
   .gear-sm { left: 200px; top: 70px; width: 72px; height: 72px; }
+  
+  #phrases-block {
+    min-height: 60px;
+    padding: 8px 16px;
+  }
+  
+  #countries-block {
+    min-height: 40px;
+    padding: 2px 0;
+  }
 }
 
 
