@@ -22,18 +22,19 @@ body {
 
 #outer {
   height: 100vh; /* lock layout to viewport height */
-  display: grid;
-  place-items: stretch; /* let children stretch to width */
+  display: flex;
+  flex-direction: column;
   padding: 0; /* full-bleed */
 }
 
 #inner {
   width: 100%;
   max-width: none; /* remove width constraint to allow full width */
-  display: grid;
-  gap: 27px; /* reduced spacing by ~5px */
-  height: 100vh; /* match viewport */
-  overflow-y: auto; /* scroll inside if content exceeds */
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* reduced spacing for no-scroll layout */
+  flex: 1; /* take available space */
+  overflow: hidden; /* prevent scroll */
 }
 
 .block {
@@ -43,6 +44,10 @@ body {
   padding: 20px;
   width: 100%; /* full width blocks */
   box-shadow: none; /* no shadow by default */
+  flex: 1; /* each block takes equal space */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #logo-block {
@@ -161,6 +166,16 @@ body {
   100% { opacity: 0; transform: translateY(-24px); }
 }
 
+.footer {
+  text-align: center;
+  padding: 8px 20px; /* reduced padding for no-scroll layout */
+  color: #666666;
+  font-size: 12px; /* smaller font for footer */
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  flex-shrink: 0; /* don't shrink footer */
+}
+
 .phrase {
   font-size: clamp(16px, 2.6vw, 22px);
   text-align: center;
@@ -177,26 +192,21 @@ body {
 
 @media (max-width: 640px) {
   #inner {
-    gap: 16px; /* smaller gap on mobile */
+    gap: 8px; /* even smaller gap on mobile for no-scroll */
   }
   
-  .gears { height: 180px; width: 280px; }
-  .gear-lg { left: 4px; top: 24px; width: 130px; height: 130px; }
-  .gear-md { left: 120px; top: 6px; width: 100px; height: 100px; }
-  .gear-sm { left: 200px; top: 70px; width: 72px; height: 72px; }
+  .gears { height: 120px; width: 240px; } /* smaller gears for mobile */
+  .gear-lg { left: 4px; top: 16px; width: 100px; height: 100px; }
+  .gear-md { left: 90px; top: 4px; width: 80px; height: 80px; }
+  .gear-sm { left: 150px; top: 50px; width: 60px; height: 60px; }
   
-  
-  
-  #countries-block {
-   
-    padding: 2px 0;
+  .block {
+    padding: 8px; /* reduced padding for all blocks on mobile */
   }
   
-  #logo-block {
-    padding: 5px; /* reduced padding for mobile */
-  }
-  #phrases-block{
-    padding: 3px 6px;
+  .footer {
+    padding: 4px 16px;
+    font-size: 10px;
   }
 }
 
