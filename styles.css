@@ -21,9 +21,9 @@ body {
 }
 
 #outer {
-  min-height: 100vh;
+  height: 100vh; /* lock layout to viewport height */
   display: grid;
-  place-items: center;
+  place-items: stretch; /* let children stretch to width */
   padding: 0; /* full-bleed */
 }
 
@@ -32,6 +32,8 @@ body {
   max-width: none; /* remove width constraint to allow full width */
   display: grid;
   gap: 27px; /* reduced spacing by ~5px */
+  height: 100vh; /* match viewport */
+  overflow-y: auto; /* scroll inside if content exceeds */
 }
 
 .block {
