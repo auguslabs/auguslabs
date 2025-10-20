@@ -194,6 +194,10 @@ body {
     min-height: 40px;
     padding: 2px 0;
   }
+  
+  #logo-block {
+    padding: 5px; /* reduced padding for mobile */
+  }
 }
 
 
