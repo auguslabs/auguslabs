@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AuLabs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="outer">
+      <div id="inner">
+        <!-- Elemento 1: Logo -->
+        <div class="block" id="logo-block" aria-label="Logo">
+          <img src="images/logo.jpg" alt="Logo AuLabs" />
+        </div>
+
+        <!-- Elemento 2: SVG con engranajes y barra de avance -->
+        <div class="block" id="gears-block" aria-live="polite">
+          <div class="gears-title">Estamos construyendo algo asombroso</div>
+          <div class="gears">
+            <!-- Gear grande -->
+            <svg class="gear gear-lg" viewBox="0 0 120 120" aria-hidden="true">
+              <g class="gear-shape">
+                <circle cx="60" cy="60" r="26" fill="#1f1f1f" />
+                <circle cx="60" cy="60" r="16" fill="#2a2a2a" />
+                <!-- dientes -->
+                <g fill="#2e2e2e">
+                  <rect x="58" y="6" width="4" height="16" rx="1" />
+                  <rect x="58" y="98" width="4" height="16" rx="1" transform="rotate(180 60 60)" />
+                  <rect x="58" y="6" width="4" height="16" rx="1" transform="rotate(30 60 60)" />
+                  <rect x="58" y="6" width="4" height="16" rx="1" transform="rotate(60 60 60)" />
+                  <rect x="58" y="6" width="4" height="16" rx="1" transform="rotate(90 60 60)" />
+                  <rect x="58" y="6" width="4" height="16" rx="1" transform="rotate(120 60 60)" />
+                  <rect x="58" y="6" width="4" height="16" rx="1" transform="rotate(150 60 60)" />
+                  <rect x="58" y="6" width="4" height="16" rx="1" transform="rotate(210 60 60)" />
+                  <rect x="58" y="6" width="4" height="16" rx="1" transform="rotate(240 60 60)" />
+                  <rect x="58" y="6" width="4" height="16" rx="1" transform="rotate(270 60 60)" />
+                  <rect x="58" y="6" width="4" height="16" rx="1" transform="rotate(300 60 60)" />
+                  <rect x="58" y="6" width="4" height="16" rx="1" transform="rotate(330 60 60)" />
+                </g>
+              </g>
+            </svg>
+
+            <!-- Gear mediano -->
+            <svg class="gear gear-md" viewBox="0 0 90 90" aria-hidden="true">
+              <g class="gear-shape">
+                <circle cx="45" cy="45" r="20" fill="#242424" />
+                <circle cx="45" cy="45" r="12" fill="#2e2e2e" />
+                <g fill="#333">
+                  <rect x="43.5" y="2" width="3" height="12" rx="1" />
+                  <rect x="43.5" y="2" width="3" height="12" rx="1" transform="rotate(30 45 45)" />
+                  <rect x="43.5" y="2" width="3" height="12" rx="1" transform="rotate(60 45 45)" />
+                  <rect x="43.5" y="2" width="3" height="12" rx="1" transform="rotate(90 45 45)" />
+                  <rect x="43.5" y="2" width="3" height="12" rx="1" transform="rotate(120 45 45)" />
+                  <rect x="43.5" y="2" width="3" height="12" rx="1" transform="rotate(150 45 45)" />
+                  <rect x="43.5" y="2" width="3" height="12" rx="1" transform="rotate(180 45 45)" />
+                  <rect x="43.5" y="2" width="3" height="12" rx="1" transform="rotate(210 45 45)" />
+                  <rect x="43.5" y="2" width="3" height="12" rx="1" transform="rotate(240 45 45)" />
+                  <rect x="43.5" y="2" width="3" height="12" rx="1" transform="rotate(270 45 45)" />
+                  <rect x="43.5" y="2" width="3" height="12" rx="1" transform="rotate(300 45 45)" />
+                  <rect x="43.5" y="2" width="3" height="12" rx="1" transform="rotate(330 45 45)" />
+                </g>
+              </g>
+            </svg>
+
+            <!-- Gear pequeño -->
+            <svg class="gear gear-sm" viewBox="0 0 60 60" aria-hidden="true">
+              <g class="gear-shape">
+                <circle cx="30" cy="30" r="14" fill="#2a2a2a" />
+                <circle cx="30" cy="30" r="8" fill="#353535" />
+                <g fill="#3a3a3a">
+                  <rect x="29" y="1" width="2" height="9" rx="1" />
+                  <rect x="29" y="1" width="2" height="9" rx="1" transform="rotate(30 30 30)" />
+                  <rect x="29" y="1" width="2" height="9" rx="1" transform="rotate(60 30 30)" />
+                  <rect x="29" y="1" width="2" height="9" rx="1" transform="rotate(90 30 30)" />
+                  <rect x="29" y="1" width="2" height="9" rx="1" transform="rotate(120 30 30)" />
+                  <rect x="29" y="1" width="2" height="9" rx="1" transform="rotate(150 30 30)" />
+                  <rect x="29" y="1" width="2" height="9" rx="1" transform="rotate(180 30 30)" />
+                  <rect x="29" y="1" width="2" height="9" rx="1" transform="rotate(210 30 30)" />
+                  <rect x="29" y="1" width="2" height="9" rx="1" transform="rotate(240 30 30)" />
+                  <rect x="29" y="1" width="2" height="9" rx="1" transform="rotate(270 30 30)" />
+                  <rect x="29" y="1" width="2" height="9" rx="1" transform="rotate(300 30 30)" />
+                  <rect x="29" y="1" width="2" height="9" rx="1" transform="rotate(330 30 30)" />
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <div class="progress-block">
+            <div class="progress-label">
+              <span id="progress-text">0%</span>
+            </div>
+            <div class="progress" aria-label="Progreso">
+              <div id="progress-bar" class="progress-bar" style="width: 0%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Elemento 3: Frases -->
+        <div class="block" id="phrases-block">
+          <div id="phrase" class="phrase" aria-live="polite">Cargando…</div>
+        </div>
+
+        <!-- Palabras: Colombia / Brasil / Estados Unidos -->
+        <div class="block" id="countries-block" aria-live="polite" aria-label="Países animados">
+          <span id="country" class="country" role="text"></span>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+  </html>
+
+
