@@ -119,6 +119,17 @@
     const nextHex = nextPaletteHex();
     currentPhraseTextColor = nextHex;
     phrasesBlock.style.background = hexToRgba(nextHex, 0.8);
+    
+    // Update gear inner circles to match phrase background color
+    updateGearInnerCircles(nextHex);
+  }
+
+  function updateGearInnerCircles(hexColor) {
+    // Apply the same color to all gear inner circles
+    const gearInnerCircles = document.querySelectorAll('.gear .gear-shape circle:nth-child(2)');
+    gearInnerCircles.forEach(circle => {
+      circle.style.fill = hexColor;
+    });
   }
 
   // Countries animation cycling
@@ -154,6 +165,7 @@
     countryEl.style.setProperty('--country-anim-duration', `2000ms`);
     // initial sync with the initial background color
     syncCountryColorToPhraseBg();
+    updateGearInnerCircles(currentPhraseTextColor); // initial gear color
     showNextCountry();
     setInterval(() => {
       showNextCountry();
