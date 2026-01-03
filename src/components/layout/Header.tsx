@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { IconG } from '@/components/ui';
+import { withBase, getBaseUrl } from '@/utils';
 
 /**
  * Componente Header - Layout
@@ -18,17 +19,21 @@ export function Header() {
     // Detectar la ruta actual
     const updatePath = () => {
       const path = window.location.pathname;
-      setCurrentPath(path);
+      const base = getBaseUrl();
+      
+      // Remover el base de la ruta para comparaciones
+      const pathWithoutBase = path.startsWith(base) ? path.slice(base.length - 1) : path;
+      setCurrentPath(pathWithoutBase);
       
       // Detectar páginas especiales que usan el header con icono G y fondo azul
       const specialPages = ['makers', 'solutions', 'experiences', 'artistry'];
       const foundPage = specialPages.find(page => 
-        path === `/${page}` || path.startsWith(`/${page}/`)
+        pathWithoutBase === `/${page}` || pathWithoutBase.startsWith(`/${page}/`)
       );
       setSpecialPage(foundPage || null);
 
       // Detectar páginas about, contact y services
-      setIsAboutOrContact(path === '/about' || path === '/contact' || path.startsWith('/services/'));
+      setIsAboutOrContact(pathWithoutBase === '/about' || pathWithoutBase === '/contact' || pathWithoutBase.startsWith('/services/'));
     };
 
     // Actualizar al montar
@@ -58,7 +63,7 @@ export function Header() {
           <div className="flex items-center justify-center gap-0">
             {/* Icono home (solo el icono, sin texto) */}
             <a 
-              href="/" 
+              href={withBase('/')} 
               className="flex items-center justify-center hover:opacity-80 transition-opacity inline-flex"
               aria-label="Go to home"
               style={{
@@ -67,7 +72,7 @@ export function Header() {
               }}
             >
               <img
-                src="/iconos/icon-home.svg"
+                src={withBase('/iconos/icon-home.svg')}
                 alt=""
                 className="object-contain"
                 style={{
@@ -79,7 +84,7 @@ export function Header() {
             
             {/* Texto "HOME" separado - mejor accesibilidad y legibilidad */}
             <a 
-              href="/" 
+              href={withBase('/')} 
               className="font-bold text-base md:text-lg lg:text-xl transition-colors hover:opacity-80 inline-flex items-center justify-center"
               style={{ 
                 color: '#07549b',
@@ -122,7 +127,7 @@ export function Header() {
           <div className="flex items-center h-16 md:h-20">
             {/* Icono G a la izquierda en cuadrado */}
             <div className="flex items-center justify-center w-16 md:w-20 h-full border-r border-white">
-              <a href="/" className="flex items-center justify-center w-full h-full hover:opacity-80 transition-opacity">
+              <a href={withBase('/')} className="flex items-center justify-center w-full h-full hover:opacity-80 transition-opacity">
                 <IconG className="w-10 h-10 md:w-12 md:h-12 text-white" />
               </a>
             </div>
@@ -158,7 +163,7 @@ export function Header() {
           {/* about - mostrar siempre */}
           <div className="flex-1 flex justify-start items-center" style={{ height: '100%', minWidth: 0 }}>
             <a 
-              href="/about" 
+              href={withBase('/about')} 
               className="font-bold transition-colors"
               style={{ 
                 color: '#9b4f07',
@@ -205,7 +210,7 @@ export function Header() {
           {/* contact */}
           <div className="flex-1 flex justify-end items-center" style={{ height: '100%', minWidth: 0 }}>
             <a 
-              href="/contact" 
+              href={withBase('/contact')} 
               className="font-bold transition-colors"
               style={{ 
                 color: '#9b4f07',

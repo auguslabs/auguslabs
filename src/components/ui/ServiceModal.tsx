@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import type { Service } from '@/data/models/service';
 import { useSwipe } from '@/hooks/useSwipe';
+import { withBase } from '@/utils';
 
 interface ServiceModalProps {
   services: Service[];
@@ -191,7 +192,7 @@ export function ServiceModal({ services, initialServiceId, isOpen, onClose }: Se
             <div className="w-full mt-6">
               {currentService.id === 'web-design' ? (
                 <a
-                  href="/services/web-design"
+                  href={withBase('/services/web-design')}
                   onClick={() => onClose()}
                   className="w-full font-semibold py-3 px-6 rounded-lg transition-colors inline-block text-center"
                   style={{

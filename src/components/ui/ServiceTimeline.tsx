@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import type { Service } from '@/data/models/service';
 import { ServiceModal } from './ServiceModal';
+import { withBase } from '@/utils';
 
 interface ServiceTimelineProps {
   services: Service[];
@@ -129,7 +130,7 @@ export function ServiceTimeline({ services }: ServiceTimelineProps) {
               Let's Make It Real
             </p>
             <a
-              href="/contact"
+              href={withBase('/contact')}
               className="inline-block font-semibold py-3 px-8 rounded-lg transition-colors"
               style={{ 
                 backgroundColor: '#9b4f07', // Color complementario (naranja)
