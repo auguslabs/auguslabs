@@ -1,0 +1,39 @@
+---
+/**
+ * Página SOLUTIONS
+ * 
+ * Muestra los servicios de AugusLabs en formato timeline vertical
+ * Al hacer clic en un servicio, se abre un modal estilo Instagram Stories
+ */
+
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { ServiceTimeline } from '@/components/ui/ServiceTimeline';
+import { services } from '@/data/mock/services';
+
+---
+
+<BaseLayout title="Solutions - Auguslabs">
+  <!-- Contenido de la página SOLUTIONS -->
+  <section class="w-full bg-white pt-20 md:pt-24 pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Breadcrumb Navigation -->
+      <div class="mb-6">
+        <nav class="text-sm italic" style="color: #07549b;">
+          <a href="/" class="hover:opacity-80 transition-opacity" style="color: #07549b;">Home</a>
+          <span class="mx-2">/</span>
+          <span style="color: #07549b;">Solutions</span>
+        </nav>
+      </div>
+
+      <!-- Descripción -->
+      <div class="mb-12">
+        <p class="text-base md:text-lg text-gray-700 max-w-3xl mx-auto text-center leading-relaxed">
+          Digital services that transform your business: web design, branding, animations, and AI-powered solutions for a solid online presence.
+        </p>
+      </div>
+
+      <!-- Timeline de servicios -->
+      <ServiceTimeline client:load services={services} />
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,514 @@
+---
+/**
+ * Página Principal - Layout de 10 filas
+ * En móvil: todas las filas visibles en 100vh sin scroll
+ */
+
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { Header } from '@/components/layout';
+
+---
+
+<BaseLayout title="Inicio - Auguslabs">
+  <!-- Contenedor principal con grid para distribuir las filas -->
+  <style>
+    /* Asegurar que el contenido dentro del main no cause overflow - Móvil y escritorio */
+    .index-page main > * {
+      flex-shrink: 0;
+    }
+  </style>
+  
+  <!-- Fila 1: Header con about y contact - Arriba de MAKERS -->
+    <div class="header-row-1">
+      <style>
+        /* Estilos para móvil */
+        .header-row-1 {
+          flex-shrink: 0;
+          overflow: visible;
+          display: flex;
+          align-items: stretch;
+          min-height: 8vh; /* Mínimo de altura para ocupar espacio */
+        }
+        .header-row-1 header {
+          width: 100%;
+          display: flex;
+          align-items: stretch;
+        }
+        @media (min-width: 768px) {
+          .header-row-1 {
+            height: var(--row-1-height);
+            min-height: var(--row-1-height);
+            max-height: var(--row-1-height);
+            padding: 0;
+          }
+          .header-row-1 header {
+            height: 100%;
+            padding: 0 !important;
+            overflow: visible;
+          }
+          .header-row-1 header a {
+            max-width: 100%;
+            box-sizing: border-box;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+          }
+        }
+      </style>
+      <Header client:load />
+    </div>
+
+    <!-- Fila 2: SOLUTIONS Banner - Contenedor grande, texto reducido 50% - Alto reducido 20% -->
+    <!-- Estructura: section (100% ancho, fondo blanco) > div (50% ancho, fondo azul) > contenido -->
+    <section class="w-full flex items-center justify-center solutions-section" style="background-color: white;">
+      <style>
+        /* Estilos para móvil */
+        .solutions-section {
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 1rem 0;
+          width: 100%;
+          background-color: white;
+          flex-shrink: 0;
+          min-height: 8vh; /* Mínimo de altura para ocupar espacio */
+        }
+        .solutions-bg-container {
+          background-color: #07549b !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          margin: 0 auto;
+          padding: 0.5rem 1rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+        }
+        @media (min-width: 768px) {
+          .solutions-section {
+            height: var(--row-2-height);
+            min-height: var(--row-2-height);
+            max-height: var(--row-2-height);
+            padding-top: 0.5rem;
+            padding-bottom: 20px;
+          }
+          .solutions-section * {
+            max-height: 100%;
+            box-sizing: border-box;
+          }
+          .solutions-bg-container {
+            max-width: 50% !important;
+            width: 50% !important;
+            height: 100%;
+            max-height: 100%;
+            padding: 0;
+          }
+          .solutions-bg-container * {
+            max-height: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+          }
+        }
+      </style>
+      <div class="text-center solutions-bg-container">
+        <style>
+          @media (min-width: 768px) {
+            .solutions-title {
+              font-size: clamp(1rem, 2vw, 1.5rem) !important; /* 50% más pequeño, se ajusta al viewport */
+              font-weight: 300 !important; /* Light */
+            }
+          }
+        </style>
+        <a href="/solutions" class="inline-flex items-center gap-2 md:gap-4 hover:opacity-90 transition-opacity">
+          <!-- Flecha izquierda hacia abajo -->
+          <svg class="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 text-white flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+          <h1 class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-light text-white uppercase tracking-wide cursor-pointer solutions-title">
+            SOLUTIONS
+          </h1>
+          <!-- Flecha derecha hacia abajo -->
+          <svg class="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 text-white flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- Fila 3: Logo AugusLabs - Padding top incrementado 5% -->
+    <section class="w-full bg-white flex items-center justify-center logo-section" style="padding-top: calc(0.25rem * 1.05); padding-bottom: 0.25rem; padding-top: calc(2rem * 1.05); padding-bottom: 2rem;">
+      <style>
+        /* Estilos para MÓVIL - Solo se aplican en pantallas menores a 768px */
+        @media (max-width: 767px) {
+          .logo-section {
+            flex-shrink: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 0;
+            min-height: 15vh; /* Mínimo de altura para ocupar espacio */
+          }
+          .logo-section .content-container {
+            max-width: 100% !important;
+            width: 100% !important;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          .logo-section img,
+          .logo-section .logo-image-desktop {
+            width: 70% !important; /* Reducido 20% (168% * 0.8 = 134.4%) */
+            height: auto !important;
+            max-width: 100% !important;
+            max-height: 100% !important;
+            object-fit: contain !important;
+            margin: 0 auto;
+            display: block;
+          }
+          .logo-section .logo-container {
+            width: 100% !important;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+          }
+        }
+        
+        /* Estilos para ESCRITORIO - Solo se aplican en pantallas de 768px o más */
+        @media (min-width: 768px) {
+          .logo-section {
+            height: var(--row-3-height) !important;
+            min-height: var(--row-3-height) !important;
+            max-height: var(--row-3-height) !important;
+            padding: 0.5rem 0 !important;
+          }
+          .logo-section img {
+            width: 30% !important; /* 70% más pequeño (30% del tamaño original) */
+            height: 30% !important;
+            max-width: 30% !important;
+            max-height: 30% !important;
+          }
+          .logo-section .content-container {
+            max-width: 50% !important;
+            width: 50% !important;
+          }
+          .logo-section .logo-container {
+            width: 100% !important;
+            height: 100% !important;
+            max-width: 100% !important;
+            max-height: 100% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+          }
+        }
+      </style>
+      <div class="content-container h-full" style="height: 100%; max-height: 100%; overflow: hidden; display: flex; justify-content: center; align-items: center;">
+        <div class="flex flex-col items-center justify-center w-full h-full" style="gap: 0.5rem; height: 100%; max-height: 100%; overflow: hidden; justify-content: center; align-items: center;">
+          <!-- Logo SVG - Se adapta al contenedor sin overflow -->
+          <div class="flex items-center justify-center" style="flex: 1; min-height: 0; width: 100%; height: 100%; max-height: 100%; overflow: hidden; justify-content: center; align-items: center;">
+            <style>
+              /* Estilos para MÓVIL - sobrescriben el inline */
+              @media (max-width: 767px) {
+                .logo-image-desktop {
+                  width: 134.4% !important; /* Reducido 20% (168% * 0.8 = 134.4%) */
+                  height: auto !important;
+                  max-width: 134.4% !important;
+                  max-height: 100% !important;
+                  object-fit: contain !important;
+                  object-position: center !important;
+                  display: block !important;
+                }
+              }
+              
+              /* Estilos para ESCRITORIO */
+              @media (min-width: 768px) {
+                .logo-container {
+                  width: 100% !important;
+                  height: 100% !important;
+                  max-width: 100% !important;
+                  max-height: 100% !important;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  overflow: hidden;
+                }
+                .logo-image-desktop {
+                  width: 30% !important; /* 70% más pequeño */
+                  height: 30% !important;
+                  max-width: 30% !important;
+                  max-height: 30% !important;
+                  object-fit: contain !important;
+                  object-position: center !important;
+                  display: block !important;
+                }
+                /* Ocultar imagen móvil en desktop */
+                .logo-container img.md\\:hidden {
+                  display: none !important;
+                }
+              }
+            </style>
+            <div class="logo-container">
+              <img src="/logo-ws-ly.svg" alt="AugusLabs Logo" class="logo-image-desktop" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fila 5: Banner placeholder -->
+    <section class="w-full bg-white banner-section" style="padding-top: 0.09rem; padding-bottom: 0.09rem;">
+      <style>
+        /* Estilos para móvil */
+        .banner-section {
+          flex-shrink: 0;
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 1rem 0;
+          min-height: 15vh; /* Mínimo de altura para ocupar espacio */
+        }
+        .banner-section .content-container {
+          max-width: 100% !important;
+          width: 100% !important;
+        }
+        .banner-section img {
+          width: 100% !important;
+          height: auto !important;
+          max-width: 100% !important;
+          object-fit: contain !important;
+        }
+        @media (min-width: 768px) {
+          .banner-section {
+            height: var(--row-5-height) !important;
+            min-height: var(--row-5-height) !important;
+            max-height: var(--row-5-height) !important;
+            padding: 0.5rem 0 !important;
+          }
+          .banner-section .content-container {
+            max-width: 50% !important;
+            width: 50% !important;
+          }
+          .banner-section img {
+            height: 100% !important; /* Usar altura del contenedor */
+            max-height: 100% !important;
+          }
+          .banner-section .banner-container {
+            width: 100% !important;
+            height: 100% !important;
+            max-width: 100% !important;
+            max-height: 100% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+          }
+        }
+      </style>
+      <div class="content-container w-full h-full" style="height: 100%; max-height: 100%; overflow: hidden;">
+        <div class="w-full h-full flex items-center justify-center" style="max-height: 100%; overflow: hidden; width: 100%; height: 100%; align-items: center;">
+          <style>
+            @media (min-width: 768px) {
+              .banner-container {
+                width: 100% !important;
+                height: 100% !important;
+                max-width: 100% !important;
+                max-height: 100% !important;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+              }
+              .banner-image {
+                width: 100% !important;
+                height: 100% !important; /* Usar altura del contenedor */
+                max-width: 100% !important;
+                max-height: 100% !important;
+                object-fit: contain !important;
+                object-position: center !important;
+                display: block !important;
+              }
+            }
+          </style>
+          <div class="banner-container">
+            <img src="/banner-demo.webp" alt="Banner Demo" class="banner-image" style="width: 100% !important; height: 100% !important; max-width: 100% !important; max-height: 100% !important; object-fit: contain !important; display: block !important;" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fila 6: MAKERS/ARTISTRY -->
+    <!-- Estructura: section (100% ancho, fondo blanco) > div (50% ancho, fondo azul) > contenido -->
+    <section class="w-full makers-artistry-section" style="background-color: white;">
+      <style>
+        /* Estilos para móvil */
+        .makers-artistry-section {
+          flex-shrink: 0;
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 1rem 0;
+          width: 100%;
+          min-height: 20vh; /* Mínimo de altura para ocupar espacio */
+        }
+        .makers-artistry-bg-container {
+          max-width: 100% !important;
+          width: 100% !important;
+          margin: 0 auto;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        @media (min-width: 768px) {
+          .makers-artistry-section {
+            height: var(--row-6-height);
+            min-height: var(--row-6-height);
+            max-height: var(--row-6-height);
+            padding-top: 0.5rem; /* Mismo espacio que EXPERIENCES */
+            padding-bottom: 0.5rem; /* Mismo espacio que EXPERIENCES */
+          }
+          .makers-artistry-bg-container {
+            max-width: 50% !important;
+            width: 50% !important;
+            height: 100%;
+            max-height: 100%;
+            overflow: visible;
+            background-color: transparent; /* Sin fondo para que se vea el blanco en el gap */
+          }
+          .makers-artistry-bg-container * {
+            max-height: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+          }
+        }
+      </style>
+      <div class="makers-artistry-bg-container w-full h-full">
+        <div class="grid grid-cols-2 gap-4 md:gap-6 lg:gap-8 w-full h-full" style="grid-auto-rows: 1fr;">
+          <!-- Columna izquierda: MAKERS - Sin margen izquierdo, fondo azul fuerte -->
+          <a href="/makers" class="bg-primary-800 p-2 md:p-8 lg:p-12 xl:p-16 flex items-center justify-center hover:opacity-90 transition-opacity w-full h-full min-h-full" style="background-color: #07549b; border-radius: 0;">
+            <style>
+              @media (min-width: 768px) {
+                .makers-title {
+                  font-size: clamp(0.875rem, 1.75vw, 1.25rem) !important; /* 50% más pequeño, se ajusta al viewport */
+                  font-weight: 300 !important; /* Light */
+                }
+              }
+            </style>
+            <div class="flex items-center gap-2 md:gap-4">
+              <h2 class="text-sm md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-light text-white uppercase tracking-wide cursor-pointer makers-title">
+                MAKERS
+              </h2>
+              <!-- Flecha hacia la derecha -->
+              <svg class="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 text-white flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
+          </a>
+          
+          <!-- Columna derecha: ARTISTRY - Sin margen derecho, fondo azul fuerte -->
+          <a href="/artistry" class="bg-primary-800 p-2 md:p-8 lg:p-12 xl:p-16 flex items-center justify-center hover:opacity-90 transition-opacity w-full h-full min-h-full" style="background-color: #07549b; border-radius: 0;">
+            <div class="flex items-center gap-2 md:gap-4">
+              <!-- Flecha hacia la izquierda -->
+              <svg class="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 text-white flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+              </svg>
+              <style>
+                @media (min-width: 768px) {
+                  .artistry-title {
+                    font-size: clamp(0.875rem, 1.75vw, 1.25rem) !important; /* 50% más pequeño, se ajusta al viewport */
+                    font-weight: 300 !important; /* Light */
+                  }
+                }
+              </style>
+              <h2 class="text-sm md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-light text-white uppercase tracking-wide cursor-pointer artistry-title">
+                ARTISTRY
+              </h2>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fila 9: EXPERIENCES - Mismo estilo que SOLUTIONS -->
+    <!-- Estructura: section (100% ancho, fondo blanco) > div (50% ancho, fondo azul) > contenido -->
+    <section class="w-full flex items-center justify-center experiences-section" style="background-color: white;">
+      <style>
+        /* Estilos para móvil */
+        .experiences-section {
+          flex-shrink: 0;
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 1rem 0;
+          width: 100%;
+          background-color: white;
+          min-height: 8vh; /* Mínimo de altura para ocupar espacio */
+        }
+        .experiences-bg-container {
+          background-color: #07549b !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          margin: 0 auto;
+          padding: 0.5rem 1rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+        }
+        @media (min-width: 768px) {
+          .experiences-section {
+            height: var(--row-9-height);
+            min-height: var(--row-9-height);
+            max-height: var(--row-9-height);
+            padding-top: 0.5rem; /* Mismo espacio que entre header y SOLUTIONS */
+            padding-bottom: 0.5rem !important; /* Mismo margen que entre header y SOLUTIONS */
+          }
+          .experiences-section * {
+            max-height: 100%;
+            box-sizing: border-box;
+          }
+          .experiences-bg-container {
+            max-width: 50% !important;
+            width: 50% !important;
+            height: 100%;
+            max-height: 100%;
+            padding: 0;
+          }
+          .experiences-bg-container * {
+            max-height: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+          }
+        }
+      </style>
+      <div class="experiences-bg-container">
+        <div class="flex items-center justify-center">
+          <style>
+            @media (min-width: 768px) {
+              .experiences-title {
+                font-size: clamp(1rem, 2vw, 1.5rem) !important; /* 50% más pequeño, se ajusta al viewport */
+                font-weight: 300 !important; /* Light */
+              }
+            }
+          </style>
+          <a href="/experiences" class="inline-flex items-center gap-2 md:gap-4 hover:opacity-90 transition-opacity">
+            <!-- Flecha izquierda hacia arriba -->
+            <svg class="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 text-white flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+            </svg>
+            <h2 class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-light text-white uppercase tracking-wide cursor-pointer experiences-title">
+              EXPERIENCES
+            </h2>
+            <!-- Flecha derecha hacia arriba -->
+            <svg class="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 text-white flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  <!-- Nota: Footer está en el componente Footer -->
+</BaseLayout>

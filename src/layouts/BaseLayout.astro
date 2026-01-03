@@ -1,0 +1,87 @@
+---
+/**
+ * Layout Base - Astro
+ * 
+ * Layout principal que envuelve todas las páginas.
+ * Incluye los estilos globales y la estructura básica.
+ */
+
+interface Props {
+  title?: string;
+}
+
+import '../styles/global.css';
+import { Header, Footer, PageTransition } from '@/components/layout';
+
+const { title = 'Auguslabs' } = Astro.props;
+
+// Determinar la dirección de animación según la página
+const getTransitionDirection = (pathname: string): 'top' | 'right' | 'left' | 'bottom' => {
+  if (pathname === '/') {
+    return 'bottom'; // Página de inicio: efecto de abajo hacia arriba
+  } else if (pathname === '/about' || pathname === '/contact') {
+    return 'top'; // About y contact: efecto suave de arriba hacia abajo
+  } else if (pathname === '/solutions' || pathname.startsWith('/solutions/')) {
+    return 'top';
+  } else if (pathname === '/makers' || pathname.startsWith('/makers/')) {
+    return 'right';
+  } else if (pathname === '/artistry' || pathname.startsWith('/artistry/')) {
+    return 'left';
+  } else if (pathname === '/experiences' || pathname.startsWith('/experiences/')) {
+    return 'bottom';
+  }
+  return 'top'; // Default
+};
+
+const transitionDirection = getTransitionDirection(Astro.url.pathname);
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Auguslabs - Sitio web oficial" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <title>{title}</title>
+  </head>
+  <body class={Astro.url.pathname === '/' ? 'index-page' : ''}>
+    {(() => {
+      const isSpecialPage = ['/solutions', '/makers', '/artistry', '/experiences'].some(path => 
+        Astro.url.pathname === path || Astro.url.pathname.startsWith(path + '/')
+      );
+      const isAboutOrContact = Astro.url.pathname === '/about' || Astro.url.pathname === '/contact';
+      
+      if (isSpecialPage) {
+        // Para páginas especiales: header fuera del PageTransition para que el fixed funcione
+        return (
+          <>
+            {Astro.url.pathname !== '/' && <Header client:load />}
+            <PageTransition client:load direction={transitionDirection}>
+              <main>
+                <slot />
+              </main>
+              <Footer client:load />
+            </PageTransition>
+          </>
+        );
+      }
+      
+      // Para otras páginas: header dentro del PageTransition (comportamiento normal)
+      return (
+        <PageTransition client:load direction={transitionDirection}>
+          {Astro.url.pathname !== '/' && <Header client:load />}
+          <main>
+            <slot />
+          </main>
+          <Footer client:load />
+        </PageTransition>
+      );
+    })()}
+  </body>
+</html>
+

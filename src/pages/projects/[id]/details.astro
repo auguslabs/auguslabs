@@ -1,0 +1,135 @@
+---
+/**
+ * Project Details Page
+ * 
+ * Shows the graphic pieces created for each project.
+ * Currently blank, ready to add content.
+ */
+
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { projects } from '@/data/mock/projects';
+
+// Required function for dynamic routes in Astro
+export async function getStaticPaths() {
+  return [
+    { params: { id: 'eabuencamino' } },
+    { params: { id: 'dulcesaladoct' } },
+    { params: { id: 'treesbyjuan' } }
+  ];
+}
+
+const { id } = Astro.params;
+const project = projects.find(p => p.id === id);
+
+if (!project) {
+  return Astro.redirect('/experiences');
+}
+
+// Graphic pieces for each project
+const graphicPieces: Record<string, Array<{ title: string; image: string }>> = {
+  'dulcesaladoct': [
+    { title: 'Brochure', image: '/icon-demo.svg' },
+    { title: 'Business Cards', image: '/icon-demo.svg' },
+    { title: 'Logo', image: '/icon-demo.svg' },
+    { title: 'Stickers', image: '/icon-demo.svg' }
+  ],
+  'eabuencamino': [
+    { title: 'Business Cards', image: '/icon-demo.svg' },
+    { title: 'Logo', image: '/icon-demo.svg' },
+    { title: 'Branding Elements', image: '/icon-demo.svg' },
+    { title: 'Web Design', image: '/icon-demo.svg' }
+  ],
+  'treesbyjuan': [
+    { title: 'Custom Icons', image: '/icon-demo.svg' },
+    { title: 'Icon Set 1', image: '/icon-demo.svg' },
+    { title: 'Icon Set 2', image: '/icon-demo.svg' },
+    { title: 'Icon Set 3', image: '/icon-demo.svg' },
+    { title: 'Icon Set 4', image: '/icon-demo.svg' },
+    { title: 'Icon Set 5', image: '/icon-demo.svg' },
+    { title: 'Icon Set 6', image: '/icon-demo.svg' },
+    { title: 'Icon Set 7', image: '/icon-demo.svg' }
+  ]
+};
+
+const pieces = graphicPieces[id || ''] || [];
+---
+
+<BaseLayout title={`${project.name} - Details - Auguslabs`}>
+  <!-- Fixed back button - Does not hide on scroll -->
+  <div class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md" style="background-color: #07549b;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+      <a 
+        href="/experiences" 
+        class="inline-flex items-center gap-2 text-white hover:opacity-90 transition-opacity font-medium"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Back
+      </a>
+      <img 
+        src="/white-logo.svg" 
+        alt="Auguslabs Logo" 
+        class="h-8 md:h-10 w-auto object-contain"
+      />
+    </div>
+  </div>
+
+  <!-- Main content - With top padding for fixed button -->
+  <section class="w-full min-h-screen pt-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <!-- Project title - Centered -->
+      <div class="text-center mb-6">
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-2" style="color: rgba(0, 0, 0, 0.8);">
+          {project.name}
+        </h1>
+        <p class="text-sm md:text-base" style="color: rgba(0, 0, 0, 0.6);">
+          www.{project.url}
+        </p>
+      </div>
+
+      <!-- Graphic Pieces title - Centered -->
+      <div class="text-center mb-8">
+        <h2 class="text-2xl md:text-3xl font-semibold" style="color: rgba(0, 0, 0, 0.8);">
+          {id === 'treesbyjuan' ? 'Custom Iconography' : 'Graphic Pieces'}
+        </h2>
+        {id === 'treesbyjuan' && (
+          <p class="text-base md:text-lg text-gray-600 mt-2 max-w-2xl mx-auto">
+            Custom iconography created specifically for TreesbyJuan, designed with brand colors to enhance the website's visual communication.
+          </p>
+        )}
+      </div>
+      
+      <!-- Graphic pieces cards grid -->
+      {pieces.length > 0 && (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {pieces.map((piece) => (
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+              <!-- Image placeholder -->
+              <div class="w-full h-48 bg-gray-100 flex items-center justify-center">
+                <img 
+                  src={piece.image} 
+                  alt={piece.title}
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <!-- Title -->
+              <div class="p-4 text-center">
+                <h3 class="text-base md:text-lg font-medium" style="color: rgba(0, 0, 0, 0.8);">
+                  {piece.title}
+                </h3>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+      
+      {pieces.length === 0 && (
+        <div class="text-center py-12">
+          <p class="text-gray-500">No graphic pieces available for this project.</p>
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>
+

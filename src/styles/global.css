@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos base personalizados */
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply antialiased font-sans;
+    background-color: #07549b; /* Azul primario para móvil */
+    color: #ffffff;
+  }
+  
+  /* Background blanco para escritorio */
+  @media (min-width: 768px) {
+    body {
+      background-color: #ffffff; /* Blanco para escritorio */
+      color: #000000; /* Texto negro para contraste con fondo blanco */
+    }
+  }
+}
+
+/* Componentes personalizados de Tailwind */
+@layer components {
+  /* Agrega tus componentes personalizados aquí */
+}
+
+/* Utilidades personalizadas */
+@layer utilities {
+  /* Agrega tus utilidades personalizadas aquí */
+}
+
+/* Ocultar scrollbar en carruseles de tecnologías */
+.technology-carousel-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Contenedor interno para limitar contenido - En móvil ocupa 100%, en escritorio 50% */
+.content-container {
+  width: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+}
+
+/* Variables CSS para controlar alturas de filas en escritorio (index.astro) */
+/* Solo se aplican en versión de escritorio (md y superior) */
+@media (min-width: 768px) {
+  :root {
+    /* Variables de altura para las 10 filas de la página principal */
+    /* Usando porcentajes del espacio disponible del main (que usa flex: 1) */
+    /* Las proporciones se mantienen, pero se calculan sobre el espacio disponible */
+    --row-1-height: 5%;  /* Header: 5% del espacio disponible del main */
+    
+    /* Distribución porcentual del espacio disponible del main */
+    /* Recalculado para que el contenido ocupe todo el espacio disponible (suma 100%) */
+    --row-2-height: 14.25%; /* SOLUTIONS: 14.25% */
+    --row-3-height: 21.25%; /* Logo: 21.25% */
+    --row-4-height: 0%;  /* Espacio vacío (sin contenido) */
+    --row-5-height: 21.25%; /* Banner: 21.25% */
+    --row-6-height: 28.25%; /* MAKERS/ARTISTRY: 28.25% */
+    --row-7-height: 0%;  /* Espacio vacío (sin contenido) */
+    --row-8-height: 0%;  /* Espacio vacío (sin contenido) */
+    --row-9-height: 14.25%; /* EXPERIENCES: 14.25% */
+    /* Total: 14.25 + 21.25 + 0 + 21.25 + 28.25 + 0 + 0 + 14.25 = 99.25% */
+    /* El 0.75% restante se distribuye automáticamente con flexbox */
+  }
+  
+  /* Contenedor interno: limitar contenido al 50% del ancho (centrado) - Solo escritorio */
+  .content-container {
+    max-width: 50%;
+  }
+  
+  /* Regla general: ningún elemento puede salirse de su contenedor */
+  .index-page section *,
+  .index-page header * {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden;
+  }
+  
+  /* Footer: sin restricciones de max-height para que se vea completo */
+  .index-page footer * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Textos deben ajustarse */
+  .index-page section p,
+  .index-page section h1,
+  .index-page section h2,
+  .index-page section h3,
+  .index-page section a,
+  .index-page header a,
+  .index-page header p,
+  .index-page footer a,
+  .index-page footer p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  
+  /* Contenedor principal: exactamente 100vh sin scroll (móvil y escritorio) */
+  .index-page body {
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* PageTransition debe ocupar exactamente 100vh sin exceder (móvil y escritorio) */
+  .index-page body > div[class*="transition"],
+  .index-page body > div {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100vh !important;
+    max-height: 100vh !important;
+    min-height: 0 !important;
+    overflow: hidden;
+  }
+  
+  /* Main ocupa el espacio disponible (flex: 1) - Móvil y escritorio */
+  /* Distribuye el espacio verticalmente entre los elementos usando space-between */
+  .index-page main {
+    flex: 1;
+    min-height: 0;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribuye el espacio verticalmente entre elementos */
+  }
+  
+  /* Footer siempre al final - Móvil y escritorio */
+  .index-page footer {
+    flex-shrink: 0 !important;
+  }
+  
+  /* Forzar que las imágenes se ajusten al contenedor - SOLO ESCRITORIO */
+  @media (min-width: 768px) {
+    .index-page .logo-section img {
+      width: 30% !important; /* 70% más pequeño */
+      height: 30% !important;
+      max-width: 30% !important;
+      max-height: 30% !important;
+      object-fit: contain !important;
+      display: block !important;
+    }
+  }
+  .index-page .banner-section img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
+  }
+  
+  /* Footer en página principal: altura natural como en otras páginas */
+  .index-page footer {
+    flex-shrink: 0;
+    /* Sin restricciones de altura - usa altura natural */
+    /* Sin overflow hidden - permite que el contenido se vea completo */
+    /* Sin padding forzado - usa el padding del componente */
+  }
+  
+  
+  /* Las secciones usan porcentajes del main (95vh) */
+  .index-page main > * {
+    flex-shrink: 0;
+  }
+}
+
+/* Estilos para página principal - sin restricciones de altura */
+/* Se mantienen los tamaños de los elementos pero se permite scroll natural */
+

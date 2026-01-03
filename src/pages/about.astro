@@ -1,0 +1,161 @@
+---
+/**
+ * ABOUT Page
+ * 
+ * Minimalist page with essential information about AugusLabs
+ */
+
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+---
+
+<BaseLayout title="About - Auguslabs">
+  <section class="w-full bg-white" style="padding-top: 1.5rem; padding-bottom: 3rem;">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Breadcrumb Navigation -->
+      <div class="mb-6">
+        <nav class="text-sm italic" style="color: #07549b;">
+          <a href="/" class="hover:opacity-80 transition-opacity" style="color: #07549b;">Home</a>
+          <span class="mx-2">/</span>
+          <span style="color: #07549b;">About</span>
+        </nav>
+      </div>
+
+      <!-- Header -->
+      <div class="mb-16 text-center">
+        <h1 
+          class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+          style="color: #07549b;"
+        >
+          ABOUT
+        </h1>
+      </div>
+
+      <!-- Company Description -->
+      <div class="mb-16">
+        <p class="text-lg md:text-xl text-gray-700 text-center leading-relaxed max-w-3xl mx-auto">
+          AugusLabs is a web technology company focused on creating digital solutions for small businesses and startups. 
+          Our multidisciplinary team works virtually across three countries—California, Brazil, and Colombia—bringing together diverse perspectives to deliver innovative digital experiences.
+        </p>
+      </div>
+
+      <!-- Key Information Grid -->
+      <div class="grid md:grid-cols-2 gap-8 mb-16">
+        <!-- Services -->
+        <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200 text-center">
+          <div class="mb-4">
+            <img 
+              src="/icon-demo.svg" 
+              alt="Services icon" 
+              class="w-12 h-12 mx-auto opacity-70"
+            />
+          </div>
+          <h3 
+            class="text-lg font-semibold mb-2"
+            style="color: #07549b;"
+          >
+            Services
+          </h3>
+          <p class="text-gray-700 text-sm">
+            Web Design & Development<br />
+            Digital Identity & Branding
+          </p>
+        </div>
+
+        <!-- Focus -->
+        <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200 text-center">
+          <div class="mb-4">
+            <img 
+              src="/icon-demo.svg" 
+              alt="Focus icon" 
+              class="w-12 h-12 mx-auto opacity-70"
+            />
+          </div>
+          <h3 
+            class="text-lg font-semibold mb-2"
+            style="color: #07549b;"
+          >
+            Focus
+          </h3>
+          <p class="text-gray-700 text-sm">
+            Small Businesses<br />
+            Startups
+          </p>
+        </div>
+
+        <!-- Bilingual -->
+        <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200 text-center">
+          <div class="mb-4">
+            <img 
+              src="/icon-demo.svg" 
+              alt="Language icon" 
+              class="w-12 h-12 mx-auto opacity-70"
+            />
+          </div>
+          <h3 
+            class="text-lg font-semibold mb-2"
+            style="color: #07549b;"
+          >
+            Bilingual
+          </h3>
+          <p class="text-gray-700 text-sm">
+            English & Spanish<br />
+            Bicultural Approach
+          </p>
+        </div>
+
+        <!-- Location -->
+        <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200 text-center">
+          <div class="mb-4">
+            <img 
+              src="/icon-demo.svg" 
+              alt="Location icon" 
+              class="w-12 h-12 mx-auto opacity-70"
+            />
+          </div>
+          <h3 
+            class="text-lg font-semibold mb-2"
+            style="color: #07549b;"
+          >
+            Location
+          </h3>
+          <p class="text-gray-700 text-sm">
+            California, USA<br />
+            Brazil & Colombia
+          </p>
+        </div>
+      </div>
+
+      <!-- CTAs Section -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 py-8">
+        <!-- CTA Section: Services -->
+        <div class="text-center">
+          <p class="text-gray-700 mb-6">
+            Discover our services
+          </p>
+          <a 
+            href="/solutions"
+            class="inline-block px-8 py-4 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity shadow-lg"
+            style="background-color: #07549b;"
+          >
+            Our Services
+          </a>
+        </div>
+
+        <!-- CTA Section: Team -->
+        <div class="text-center">
+          <p class="text-gray-700 mb-6">
+            Want to know more about who we are?
+          </p>
+          <a 
+            href="/makers"
+            class="inline-block px-8 py-4 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity shadow-lg"
+            style="background-color: #9b4f07;"
+          >
+            Meet the Team
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
