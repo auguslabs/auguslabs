@@ -7,8 +7,6 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { Header } from '@/components/layout';
 
-const BASE_URL = import.meta.env.BASE_URL;
-
 ---
 
 <BaseLayout title="Inicio - Auguslabs">
@@ -121,7 +119,7 @@ const BASE_URL = import.meta.env.BASE_URL;
             }
           }
         </style>
-        <a href={`${BASE_URL}solutions`} class="inline-flex items-center gap-2 md:gap-4 hover:opacity-90 transition-opacity">
+        <a href="/solutions" class="inline-flex items-center gap-2 md:gap-4 hover:opacity-90 transition-opacity">
           <!-- Flecha izquierda hacia abajo -->
           <svg class="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 text-white flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -388,7 +386,7 @@ const BASE_URL = import.meta.env.BASE_URL;
       <div class="makers-artistry-bg-container w-full h-full">
         <div class="grid grid-cols-2 gap-4 md:gap-6 lg:gap-8 w-full h-full" style="grid-auto-rows: 1fr;">
           <!-- Columna izquierda: MAKERS - Sin margen izquierdo, fondo azul fuerte -->
-          <a href={`${BASE_URL}makers`} class="bg-primary-800 p-2 md:p-8 lg:p-12 xl:p-16 flex items-center justify-center hover:opacity-90 transition-opacity w-full h-full min-h-full" style="background-color: #07549b; border-radius: 0;">
+          <a href="/makers" class="bg-primary-800 p-2 md:p-8 lg:p-12 xl:p-16 flex items-center justify-center hover:opacity-90 transition-opacity w-full h-full min-h-full" style="background-color: #07549b; border-radius: 0;">
             <style>
               @media (min-width: 768px) {
                 .makers-title {
@@ -409,7 +407,7 @@ const BASE_URL = import.meta.env.BASE_URL;
           </a>
           
           <!-- Columna derecha: ARTISTRY - Sin margen derecho, fondo azul fuerte -->
-          <a href={`${BASE_URL}artistry`} class="bg-primary-800 p-2 md:p-8 lg:p-12 xl:p-16 flex items-center justify-center hover:opacity-90 transition-opacity w-full h-full min-h-full" style="background-color: #07549b; border-radius: 0;">
+          <a href="/artistry" class="bg-primary-800 p-2 md:p-8 lg:p-12 xl:p-16 flex items-center justify-center hover:opacity-90 transition-opacity w-full h-full min-h-full" style="background-color: #07549b; border-radius: 0;">
             <div class="flex items-center gap-2 md:gap-4">
               <!-- Flecha hacia la izquierda -->
               <svg class="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 text-white flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -495,7 +493,7 @@ const BASE_URL = import.meta.env.BASE_URL;
               }
             }
           </style>
-          <a href={`${BASE_URL}experiences`} class="inline-flex items-center gap-2 md:gap-4 hover:opacity-90 transition-opacity">
+          <a href="/experiences" class="inline-flex items-center gap-2 md:gap-4 hover:opacity-90 transition-opacity">
             <!-- Flecha izquierda hacia arriba -->
             <svg class="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 text-white flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />

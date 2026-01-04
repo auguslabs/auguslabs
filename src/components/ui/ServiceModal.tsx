@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import type { Service } from '@/data/models/service';
 import { useSwipe } from '@/hooks/useSwipe';
-import { withBase } from '@/utils';
 
 interface ServiceModalProps {
   services: Service[];

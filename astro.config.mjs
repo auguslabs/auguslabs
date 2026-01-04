@@ -18,7 +18,7 @@ export default defineConfig({
   // Configuración para GitHub Pages
   // Si tu repositorio es username.github.io, deja base: '/'
   // Si tu repositorio es otro nombre (ej: username/auguslabs), descomenta y ajusta:
-  base: '/auguslabs/',
+  // base: '/auguslabs/',
   server: {
     host: true, // Escucha en todas las interfaces de red (0.0.0.0)
     port: 4321, // Puerto por defecto de Astro

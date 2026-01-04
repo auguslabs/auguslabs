@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import type { Service } from '@/data/models/service';
 import { ServiceModal } from './ServiceModal';
-import { withBase } from '@/utils';
 
 interface ServiceTimelineProps {
   services: Service[];

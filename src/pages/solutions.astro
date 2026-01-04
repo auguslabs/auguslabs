@@ -10,8 +10,6 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import { ServiceTimeline } from '@/components/ui/ServiceTimeline';
 import { services } from '@/data/mock/services';
 
-const BASE_URL = import.meta.env.BASE_URL;
-
 ---
 
 <BaseLayout title="Solutions - Auguslabs">
@@ -21,7 +19,7 @@ const BASE_URL = import.meta.env.BASE_URL;
       <!-- Breadcrumb Navigation -->
       <div class="mb-6">
         <nav class="text-sm italic" style="color: #07549b;">
-          <a href={BASE_URL} class="hover:opacity-80 transition-opacity" style="color: #07549b;">Home</a>
+          <a href="/" class="hover:opacity-80 transition-opacity" style="color: #07549b;">Home</a>
           <span class="mx-2">/</span>
           <span style="color: #07549b;">Solutions</span>
         </nav>

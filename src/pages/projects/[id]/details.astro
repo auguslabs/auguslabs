@@ -9,8 +9,6 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { projects } from '@/data/mock/projects';
 
-const BASE_URL = import.meta.env.BASE_URL;
-
 // Required function for dynamic routes in Astro
 export async function getStaticPaths() {
   return [
