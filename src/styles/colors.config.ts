@@ -77,7 +77,7 @@ function generateTints(baseColor: string, count: number = 10): Record<string, st
   for (let i = 0; i < count; i++) {
     // Porcentaje de mezcla: más blanco = más claro
     // 50 es el más claro (90% blanco), 500 es el color base (0% blanco)
-    const percentage = 1 - (i / (count - 1)) * 0.9; // De 1.0 a 0.1
+    const percentage = 0.1 + (i / (count - 1)) * 0.9; // De 0.1 a 1.0
     const mixed = mixColors(white, base, percentage);
     tints[tintKeys[i]] = rgbToHex(mixed.r, mixed.g, mixed.b);
   }

@@ -38,6 +38,19 @@
   display: none;
 }
 
+/* Tarjeta de tecnología: borde gris y color al hover */
+.tech-card {
+  border-bottom-color: #e5e7eb;
+}
+
+.tech-card:hover {
+  border-bottom-color: var(--tech-brand);
+}
+
+.tech-card.is-active {
+  border-bottom-color: var(--tech-brand);
+}
+
 /* Contenedor interno para limitar contenido - En móvil ocupa 100%, en escritorio 50% */
 .content-container {
   width: 100%;

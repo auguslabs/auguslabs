@@ -155,21 +155,42 @@ export function ServiceModal({ services, initialServiceId, isOpen, onClose }: Se
           {/* Contenido del modal */}
           <div className="p-6 md:p-8 lg:p-10 overflow-y-auto" style={{ paddingBottom: '80px' }}>
             {/* Fila 1: Imagen grande del servicio */}
-            <div className="w-full flex items-center justify-center mb-6" style={{ minHeight: '300px', backgroundColor: '#eef3f7', borderRadius: '12px' }}>
+            <div
+              className="relative w-full flex items-center justify-center mb-6 overflow-hidden"
+              style={{ minHeight: '300px', backgroundColor: '#ffffff', borderRadius: '12px' }}
+            >
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  opacity: 0.35,
+                  backgroundImage:
+                    currentIndex % 2 === 0
+                      ? "url('/icons/ui/pattern-circle-0-degrees.svg')"
+                      : "url('/icons/ui/pattern-circle-90-degrees.svg')",
+                  backgroundRepeat: 'repeat',
+                  backgroundSize: '48px 48px',
+                }}
+              />
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                }}
+              />
               {currentService.image ? (
                 <img
                   src={currentService.image}
                   alt={currentService.name}
-                  className="max-w-full max-h-full object-contain"
+                  className="relative z-10 max-w-full max-h-full object-contain"
                 />
               ) : currentService.icon ? (
                 <img
                   src={currentService.icon}
                   alt={currentService.name}
-                  className="w-48 h-48 object-contain"
+                  className="relative z-10 w-48 h-48 object-contain"
                 />
               ) : (
-                <div className="text-lg font-medium" style={{ color: '#07549b' }}>
+                <div className="relative z-10 text-lg font-medium" style={{ color: '#07549b' }}>
                   Image placeholder
                 </div>
               )}
@@ -191,7 +212,7 @@ export function ServiceModal({ services, initialServiceId, isOpen, onClose }: Se
             <div className="w-full mt-6">
               {currentService.id === 'web-design' ? (
                 <a
-                  href={withBase('/services/web-design')}
+                  href="/services/web-design"
                   onClick={() => onClose()}
                   className="w-full font-semibold py-3 px-6 rounded-lg transition-colors inline-block text-center"
                   style={{
