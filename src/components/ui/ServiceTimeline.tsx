@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import type { Service } from '@/data/models/service';
+import { secondaryColors } from '@/styles/colors.config';
 import { ServiceModal } from './ServiceModal';
 
 interface ServiceTimelineProps {
@@ -120,6 +121,46 @@ export function ServiceTimeline({ services }: ServiceTimelineProps) {
 
         {/* Referencia para calcular el final de la línea */}
         <div ref={timelineEndRef} className="relative">
+          <section
+            className="mt-16 rounded-2xl px-6 py-10 md:py-12 md:px-10 text-center"
+            style={{ backgroundColor: secondaryColors[50] }}
+          >
+            <p
+              className="text-sm uppercase tracking-wide font-semibold"
+              style={{ color: '#07549b' }}
+            >
+              Explore our work
+            </p>
+            <h3
+              className="mt-3 text-2xl md:text-3xl font-bold"
+              style={{ color: '#07549b' }}
+            >
+              Visit our projects page to see the great work we have been creating.
+            </h3>
+            <p
+              className="mt-4 text-base md:text-lg"
+              style={{ color: '#07549b' }}
+            >
+              Real projects, real results. Discover how we have helped clients build and grow.
+            </p>
+            <a
+              href="/experiences"
+              className="mt-6 inline-block font-semibold py-3 px-8 rounded-lg transition-colors"
+              style={{
+                backgroundColor: secondaryColors[500],
+                color: 'white',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#8a4606';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = secondaryColors[500];
+              }}
+            >
+              View Projects
+            </a>
+          </section>
+
           {/* Call to Action al final */}
           <div className="mt-16 text-center space-y-4">
             <p className="text-lg font-medium" style={{ color: '#07549b' }}>
@@ -129,7 +170,7 @@ export function ServiceTimeline({ services }: ServiceTimelineProps) {
               Let's Make It Real
             </p>
             <a
-              href={withBase('/contact')}
+              href="/contact"
               className="inline-block font-semibold py-3 px-8 rounded-lg transition-colors"
               style={{ 
                 backgroundColor: '#9b4f07', // Color complementario (naranja)
