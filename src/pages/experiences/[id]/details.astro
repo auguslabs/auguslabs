@@ -54,7 +54,7 @@ const graphicPieces: Record<string, Array<{ title: string; image: string }>> = {
 const pieces = graphicPieces[id || ''] || [];
 ---
 
-<BaseLayout title={`${project.name} - Details - Auguslabs`}>
+<BaseLayout title={`${project.name} - Details - Auguslabs`} hideHeader={true}>
   <!-- Fixed back button - Does not hide on scroll -->
   <div class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md" style="background-color: #07549b;">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">

@@ -8,12 +8,13 @@
 
 interface Props {
   title?: string;
+  hideHeader?: boolean;
 }
 
 import '../styles/global.css';
 import { Header, Footer, PageTransition } from '@/components/layout';
 
-const { title = 'Auguslabs' } = Astro.props;
+const { title = 'Auguslabs', hideHeader = false } = Astro.props;
 
 // Determinar la dirección de animación según la página
 const getTransitionDirection = (pathname: string): 'top' | 'right' | 'left' | 'bottom' => {
@@ -60,7 +61,7 @@ const transitionDirection = getTransitionDirection(Astro.url.pathname);
         // Para páginas especiales: header fuera del PageTransition para que el fixed funcione
         return (
           <>
-            {Astro.url.pathname !== '/' && <Header currentPath={Astro.url.pathname} />}
+            {!hideHeader && Astro.url.pathname !== '/' && <Header currentPath={Astro.url.pathname} />}
             <PageTransition client:load direction={transitionDirection}>
               <main>
                 <slot />
@@ -74,7 +75,7 @@ const transitionDirection = getTransitionDirection(Astro.url.pathname);
       // Para otras páginas: header dentro del PageTransition (comportamiento normal)
       return (
         <PageTransition client:load direction={transitionDirection}>
-          {Astro.url.pathname !== '/' && <Header currentPath={Astro.url.pathname} />}
+          {!hideHeader && Astro.url.pathname !== '/' && <Header currentPath={Astro.url.pathname} />}
           <main>
             <slot />
           </main>
