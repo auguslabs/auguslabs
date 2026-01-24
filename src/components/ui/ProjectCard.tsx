@@ -49,26 +49,26 @@ export function ProjectCard({ project }: ProjectCardProps) {
           {/* Badges del proceso */}
           <div className="flex items-center gap-1 md:gap-2">
             <div className="flex items-center gap-1">
-              <img
-                src="/iconos/icon-generic.svg"
+                <img
+                  src="/icons/solutions/icon-generic.svg"
                 alt="Listen"
                 className="w-4 h-4 md:w-5 md:h-5 opacity-70"
                 title="We Listen"
               />
-              <img
-                src="/iconos/icon-generic.svg"
+                <img
+                  src="/icons/solutions/icon-generic.svg"
                 alt="Understand"
                 className="w-4 h-4 md:w-5 md:h-5 opacity-70"
                 title="We Understand"
               />
-              <img
-                src="/iconos/icon-generic.svg"
+                <img
+                  src="/icons/solutions/icon-generic.svg"
                 alt="Propose"
                 className="w-4 h-4 md:w-5 md:h-5 opacity-70"
                 title="We Propose"
               />
-              <img
-                src="/iconos/icon-generic.svg"
+                <img
+                  src="/icons/solutions/icon-generic.svg"
                 alt="Develop"
                 className="w-4 h-4 md:w-5 md:h-5 opacity-70"
                 title="We Develop"
@@ -172,8 +172,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <div className="space-y-3">
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <img
-                    src="/iconos/icon-generic.svg"
+                    <img
+                      src="/icons/solutions/icon-generic.svg"
                     alt="Listen"
                     className="w-4 h-4"
                   />
@@ -183,8 +183,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
               </div>
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <img
-                    src="/iconos/icon-generic.svg"
+                    <img
+                      src="/icons/solutions/icon-generic.svg"
                     alt="Understand"
                     className="w-4 h-4"
                   />
@@ -194,8 +194,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
               </div>
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <img
-                    src="/iconos/icon-generic.svg"
+                    <img
+                      src="/icons/solutions/icon-generic.svg"
                     alt="Propose"
                     className="w-4 h-4"
                   />
@@ -205,8 +205,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
               </div>
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <img
-                    src="/iconos/icon-generic.svg"
+                    <img
+                      src="/icons/solutions/icon-generic.svg"
                     alt="Develop"
                     className="w-4 h-4"
                   />
@@ -233,7 +233,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           {(project.id === 'eabuencamino' || project.id === 'dulcesaladoct' || project.id === 'treesbyjuan') && (
             <div className="mb-4">
               <a
-                href={`/projects/${project.id}/details`}
+                href={`/experiences/${project.id}/details`}
                 className="block w-full px-4 py-2 text-sm font-medium rounded-lg text-center transition-colors hover:opacity-90"
                 style={{
                   backgroundColor: '#9b4f07',

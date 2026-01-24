@@ -67,7 +67,7 @@ export function Header() {
               }}
             >
               <img
-                src="/iconos/icon-home.svg"
+                src="/icons/ui/icon-home.svg"
                 alt=""
                 className="object-contain"
                 style={{
