@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { IconG } from '@/components/ui';
 
 /**
@@ -9,43 +9,20 @@ import { IconG } from '@/components/ui';
  * - En /about y /contact: Muestra icono home + texto "HOME" o "BACK" para mejor UX
  * - En otras páginas: Muestra el header tradicional con about/contact
  */
-export function Header() {
-  const [currentPath, setCurrentPath] = useState<string>('/');
-  const [specialPage, setSpecialPage] = useState<string | null>(null);
-  const [isAboutOrContact, setIsAboutOrContact] = useState(false);
+interface HeaderProps {
+  currentPath?: string;
+}
 
-  useEffect(() => {
-    // Detectar la ruta actual
-    const updatePath = () => {
-      const path = window.location.pathname;
-      setCurrentPath(path);
-      
-      // Detectar páginas especiales que usan el header con icono G y fondo azul
-      const specialPages = ['makers', 'solutions', 'experiences', 'artistry'];
-      const foundPage = specialPages.find(page => 
-        path === `/${page}` || path.startsWith(`/${page}/`)
-      );
-      setSpecialPage(foundPage || null);
-
-      // Detectar páginas about, contact y services
-      setIsAboutOrContact(path === '/about' || path === '/contact' || path.startsWith('/services/'));
-    };
-
-    // Actualizar al montar
-    updatePath();
-
-    // Escuchar cambios de ruta (para navegación SPA si se implementa)
-    window.addEventListener('popstate', updatePath);
-
-    // Observer para detectar cambios en la URL (útil para Astro)
-    const observer = new MutationObserver(updatePath);
-    observer.observe(document.body, { childList: true, subtree: true });
-
-    return () => {
-      window.removeEventListener('popstate', updatePath);
-      observer.disconnect();
-    };
-  }, []);
+export function Header({ currentPath = '/' }: HeaderProps) {
+  const normalizedPath = currentPath.replace(/\/+$/, '') || '/';
+  const specialPages = ['makers', 'solutions', 'experiences', 'artistry'];
+  const specialPage = specialPages.find((page) =>
+    normalizedPath === `/${page}` || normalizedPath.startsWith(`/${page}/`)
+  );
+  const isAboutOrContact =
+    normalizedPath === '/about' ||
+    normalizedPath === '/contact' ||
+    normalizedPath.startsWith('/services/');
 
   // Header para páginas ABOUT y CONTACT - Icono + Texto separados para mejor UX
   if (isAboutOrContact) {
@@ -140,7 +117,7 @@ export function Header() {
   }
 
   // Header tradicional para otras páginas (home y otras)
-  const isHomePage = currentPath === '/';
+  const isHomePage = normalizedPath === '/';
   
   return (
     <header 

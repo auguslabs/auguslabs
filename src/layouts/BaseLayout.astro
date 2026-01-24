@@ -60,7 +60,7 @@ const transitionDirection = getTransitionDirection(Astro.url.pathname);
         // Para páginas especiales: header fuera del PageTransition para que el fixed funcione
         return (
           <>
-            {Astro.url.pathname !== '/' && <Header client:load />}
+            {Astro.url.pathname !== '/' && <Header currentPath={Astro.url.pathname} />}
             <PageTransition client:load direction={transitionDirection}>
               <main>
                 <slot />
@@ -74,7 +74,7 @@ const transitionDirection = getTransitionDirection(Astro.url.pathname);
       // Para otras páginas: header dentro del PageTransition (comportamiento normal)
       return (
         <PageTransition client:load direction={transitionDirection}>
-          {Astro.url.pathname !== '/' && <Header client:load />}
+          {Astro.url.pathname !== '/' && <Header currentPath={Astro.url.pathname} />}
           <main>
             <slot />
           </main>
