@@ -17,7 +17,7 @@ export const technologies: Technology[] = [
   {
     id: 'react',
     name: 'React',
-    icon: '/icon-demo.svg', // TODO: Reemplazar con icono real de React
+    icon: '/icons/tech/react.svg',
     category: 'web',
     description: 'Biblioteca de JavaScript para construir interfaces de usuario',
     brandColor: '#61DAFB' // Azul claro característico de React
@@ -25,7 +25,7 @@ export const technologies: Technology[] = [
   {
     id: 'astro',
     name: 'Astro',
-    icon: '/icon-demo.svg', // TODO: Reemplazar con icono real de Astro
+    icon: '/icons/tech/astro.svg',
     category: 'web',
     description: 'Framework web moderno para sitios estáticos y dinámicos',
     brandColor: '#FF5D01' // Naranja característico de Astro
@@ -33,7 +33,7 @@ export const technologies: Technology[] = [
   {
     id: 'tailwindcss',
     name: 'TailwindCSS',
-    icon: '/icon-demo.svg', // TODO: Reemplazar con icono real de TailwindCSS
+    icon: '/icons/tech/tailwindcss.svg',
     category: 'web',
     description: 'Framework CSS utility-first para diseño rápido',
     brandColor: '#38BDF8' // Azul cielo característico de TailwindCSS
@@ -41,7 +41,7 @@ export const technologies: Technology[] = [
   {
     id: 'typescript',
     name: 'TypeScript',
-    icon: '/icon-demo.svg', // TODO: Reemplazar con icono real de TypeScript
+    icon: '/icons/tech/typescript.svg',
     category: 'web',
     description: 'Superset de JavaScript con tipado estático',
     brandColor: '#3178C6' // Azul característico de TypeScript
@@ -49,7 +49,7 @@ export const technologies: Technology[] = [
   {
     id: 'javascript',
     name: 'JavaScript',
-    icon: '/icon-demo.svg', // TODO: Reemplazar con icono real de JavaScript
+    icon: '/icons/tech/javascript.svg',
     category: 'web',
     description: 'Lenguaje de programación para desarrollo web',
     brandColor: '#F7DF1E' // Amarillo característico de JavaScript
@@ -59,25 +59,17 @@ export const technologies: Technology[] = [
   {
     id: 'firebase',
     name: 'Firebase',
-    icon: '/icon-demo.svg', // TODO: Reemplazar con icono real de Firebase
+    icon: '/icons/tech/firebase.svg',
     category: 'web',
     description: 'Plataforma de Google para backend, base de datos y autenticación',
     brandColor: '#FFCA28' // Amarillo característico de Firebase
-  },
-  {
-    id: 'firestore',
-    name: 'Firestore',
-    icon: '/icon-demo.svg', // TODO: Reemplazar con icono real de Firestore
-    category: 'web',
-    description: 'Base de datos NoSQL en tiempo real de Firebase',
-    brandColor: '#039BE5' // Azul característico de Firebase/Firestore
   },
   
   // Desarrollo Web - Herramientas
   {
     id: 'git',
     name: 'Git',
-    icon: '/icon-demo.svg', // TODO: Reemplazar con icono real de Git
+    icon: '/icons/tech/git.svg',
     category: 'tools',
     description: 'Sistema de control de versiones',
     brandColor: '#F1502F' // Naranja característico de Git
@@ -85,7 +77,7 @@ export const technologies: Technology[] = [
   {
     id: 'github',
     name: 'GitHub',
-    icon: '/icon-demo.svg', // TODO: Reemplazar con icono real de GitHub
+    icon: '/icons/tech/github.svg',
     category: 'tools',
     description: 'Plataforma de desarrollo colaborativo',
     brandColor: '#181717' // Gris oscuro/negro característico de GitHub
@@ -93,7 +85,7 @@ export const technologies: Technology[] = [
   {
     id: 'vite',
     name: 'Vite',
-    icon: '/icon-demo.svg', // TODO: Reemplazar con icono real de Vite
+    icon: '/icons/tech/vite.svg',
     category: 'tools',
     description: 'Herramienta de build rápida para desarrollo frontend',
     brandColor: '#646CFF' // Morado/azul característico de Vite
@@ -103,15 +95,15 @@ export const technologies: Technology[] = [
   {
     id: 'illustrator',
     name: 'Adobe Illustrator',
-    icon: '/icon-demo.svg', // TODO: Reemplazar con icono real de Illustrator
+    icon: '/icons/tech/illustrator.svg',
     category: 'audiovisual',
     description: 'Software de diseño vectorial e ilustración',
     brandColor: '#FF9A00' // Naranja característico de Illustrator
   },
   {
     id: 'after-effects',
-    name: 'After Effects',
-    icon: '/icon-demo.svg', // TODO: Reemplazar con icono real de After Effects
+    name: 'After\nEffects',
+    icon: '/icons/tech/after-effects.svg',
     category: 'audiovisual',
     description: 'Software de composición y animación de video',
     brandColor: '#CF96FD' // Violeta pálido característico de After Effects
@@ -119,25 +111,25 @@ export const technologies: Technology[] = [
   {
     id: 'photoshop',
     name: 'Adobe Photoshop',
-    icon: '/icon-demo.svg', // TODO: Reemplazar con icono real de Photoshop
+    icon: '/icons/tech/photoshop.svg',
     category: 'audiovisual',
     description: 'Software de edición de imágenes y diseño gráfico',
     brandColor: '#31A8FF' // Azul característico de Photoshop
   },
   {
-    id: 'premiere',
-    name: 'Adobe Premiere Pro',
-    icon: '/icon-demo.svg', // TODO: Reemplazar con icono real de Premiere
+    id: 'creative-cloud',
+    name: 'Adobe Creative Cloud',
+    icon: '/icons/tech/creative-cloud.svg',
     category: 'audiovisual',
-    description: 'Software de edición de video profesional',
-    brandColor: '#DB76FA' // Heliotrope/violeta característico de Premiere Pro
+    description: 'Suite de aplicaciones creativas de Adobe',
+    brandColor: '#DA1F26' // Rojo característico de Adobe
   },
   
   // Herramientas de Google
   {
     id: 'google-analytics',
     name: 'Google Analytics',
-    icon: '/icon-demo.svg', // TODO: Reemplazar con icono real de Google Analytics
+    icon: '/icons/tech/google-analytics.svg',
     category: 'tools',
     description: 'Plataforma de análisis web y tracking',
     brandColor: '#E37400' // Naranja característico de Google Analytics
@@ -145,7 +137,7 @@ export const technologies: Technology[] = [
   {
     id: 'search-console',
     name: 'Google Search Console',
-    icon: '/icon-demo.svg', // TODO: Reemplazar con icono real de Search Console
+    icon: '/icons/tech/search-console.svg',
     category: 'tools',
     description: 'Herramienta de Google para monitoreo SEO',
     brandColor: '#4285F4' // Azul característico de Google

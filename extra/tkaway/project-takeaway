@@ -1,0 +1,37 @@
+Project Takeaway - Carrusel Banner
+
+Contexto
+- Se estaba implementando un carrusel en la seccion del banner del index.
+- El layout de la pagina usa reglas globales de max-width y overflow para evitar scroll.
+
+Problema
+- En escritorio solo se veia la primera imagen o la imagen quedaba corrida a la derecha.
+- El carrusel ocupaba mas alto/ancho y activaba scroll.
+- La animacion no se comportaba igual en movil y desktop.
+
+Causa raiz
+- El enfoque de carrusel con "track" (ancho 300%) chocaba con reglas globales:
+  - max-width: 100% !important para todos los elementos dentro de secciones.
+  - overflow: hidden en contenedores del layout.
+- Esas reglas limitaban el ancho real del track, por eso el desplazamiento se rompia.
+
+Solucion final
+- Mantener el mismo contenedor fijo (tamanio del banner no cambia).
+- Cambiar solo el src de la imagen cada 4 segundos con JS.
+- Agregar puntos indicadores debajo del banner.
+
+Lecciones
+- Antes de usar carruseles con track, revisar reglas globales de layout.
+- Si el contenedor no puede crecer, preferir cambiar src en lugar de desplazar track.
+- Probar primero en desktop, donde las reglas globales son mas estrictas.
+
+Nota
+- Los iconos de tecnologias deben ir en public/icons/tech/.
+- Nombre en minusculas y con guiones segun el id (ej: illustrator.png o illustrator.svg).
+- El componente intenta svg y luego png, y si falla usa icon-demo.svg.
+
+Estandarizacion de tamanio de iconos
+- Problema: logos con diferentes tamanios se ven desiguales aunque haya max-height.
+- Solucion: contenedor fijo + object-fit: contain para estandarizar el espacio visual.
+- Implementacion: wrapper con ancho/alto fijo (responsive) y la imagen a w-full h-full.
+- Resultado: todos los iconos ocupan el mismo espacio sin deformarse.

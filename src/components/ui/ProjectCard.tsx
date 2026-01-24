@@ -1,4 +1,9 @@
 import React, { useState } from 'react';
+import {
+  SpeakerWaveIcon,
+  PuzzlePieceIcon,
+  LightBulbIcon,
+} from '@heroicons/react/24/outline';
 import type { Project } from '@/data/models/project';
 
 interface ProjectCardProps {
@@ -49,27 +54,21 @@ export function ProjectCard({ project }: ProjectCardProps) {
           {/* Badges del proceso */}
           <div className="flex items-center gap-1 md:gap-2">
             <div className="flex items-center gap-1">
-                <img
-                  src="/icons/solutions/icon-generic.svg"
-                alt="Listen"
-                className="w-4 h-4 md:w-5 md:h-5 opacity-70"
+              <SpeakerWaveIcon
+                className="w-4 h-4 md:w-5 md:h-5 opacity-70 text-[#9b4f07]"
                 title="We Listen"
               />
-                <img
-                  src="/icons/solutions/icon-generic.svg"
-                alt="Understand"
-                className="w-4 h-4 md:w-5 md:h-5 opacity-70"
+              <PuzzlePieceIcon
+                className="w-4 h-4 md:w-5 md:h-5 opacity-70 text-[#9b4f07]"
                 title="We Understand"
               />
-                <img
-                  src="/icons/solutions/icon-generic.svg"
-                alt="Propose"
-                className="w-4 h-4 md:w-5 md:h-5 opacity-70"
+              <LightBulbIcon
+                className="w-4 h-4 md:w-5 md:h-5 opacity-70 text-[#9b4f07]"
                 title="We Propose"
               />
-                <img
-                  src="/icons/solutions/icon-generic.svg"
-                alt="Develop"
+              <img
+                src="/icons/ui/code-bracket-photo.svg"
+                alt=""
                 className="w-4 h-4 md:w-5 md:h-5 opacity-70"
                 title="We Develop"
               />
@@ -172,42 +171,30 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <div className="space-y-3">
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                    <img
-                      src="/icons/solutions/icon-generic.svg"
-                    alt="Listen"
-                    className="w-4 h-4"
-                  />
+                  <SpeakerWaveIcon className="w-4 h-4 text-[#9b4f07]" />
                   <span className="font-semibold text-sm" style={{ color: '#07549b' }}>We Listen:</span>
                 </div>
                 <p className="text-sm text-gray-700 ml-6">{project.process.listen}</p>
               </div>
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                    <img
-                      src="/icons/solutions/icon-generic.svg"
-                    alt="Understand"
-                    className="w-4 h-4"
-                  />
+                  <PuzzlePieceIcon className="w-4 h-4 text-[#9b4f07]" />
                   <span className="font-semibold text-sm" style={{ color: '#07549b' }}>We Understand:</span>
                 </div>
                 <p className="text-sm text-gray-700 ml-6">{project.process.understand}</p>
               </div>
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                    <img
-                      src="/icons/solutions/icon-generic.svg"
-                    alt="Propose"
-                    className="w-4 h-4"
-                  />
+                  <LightBulbIcon className="w-4 h-4 text-[#9b4f07]" />
                   <span className="font-semibold text-sm" style={{ color: '#07549b' }}>We Propose:</span>
                 </div>
                 <p className="text-sm text-gray-700 ml-6">{project.process.propose}</p>
               </div>
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                    <img
-                      src="/icons/solutions/icon-generic.svg"
-                    alt="Develop"
+                  <img
+                    src="/icons/ui/code-bracket-photo.svg"
+                    alt=""
                     className="w-4 h-4"
                   />
                   <span className="font-semibold text-sm" style={{ color: '#07549b' }}>We Develop:</span>

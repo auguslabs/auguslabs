@@ -24,7 +24,7 @@ export const services: Service[] = [
     icon: '/icons/solutions/animaciones.svg',
     description: 'Simple motion graphics and short animations that capture attention on social media and landing pages.',
     category: 'primary',
-    order: 2,
+    order: 6,
     position: 'right',
   },
   {
@@ -33,12 +33,12 @@ export const services: Service[] = [
     icon: '/icons/solutions/video.svg',
     description: 'Explanatory videos and motion graphics for social media that tell your brand story effectively.',
     category: 'primary',
-    order: 3,
+    order: 7,
     position: 'left',
   },
   {
     id: 'product-design',
-    name: 'Product Design',
+    name: 'Digital Product Design',
     icon: '/icons/solutions/product-design.svg',
     description: 'User-centered digital product design that focuses on results and exceptional user experiences.',
     category: 'primary',
@@ -51,7 +51,7 @@ export const services: Service[] = [
     icon: '/icons/solutions/diseno-grafico.svg',
     description: 'Attractive graphics and visual content that effectively communicate your message and enhance your brand.',
     category: 'secondary',
-    order: 5,
+    order: 3,
     position: 'left',
   },
   {
@@ -60,7 +60,7 @@ export const services: Service[] = [
     icon: '/icons/solutions/aplicaciones-web.svg',
     description: 'Functional and scalable web applications built to grow with your business and meet your specific needs.',
     category: 'secondary',
-    order: 6,
+    order: 2,
     position: 'right',
   },
   {
@@ -69,7 +69,7 @@ export const services: Service[] = [
     icon: '/icons/solutions/ux-ui.svg',
     description: 'Optimized user experience and intuitive interfaces that convert visitors into loyal customers.',
     category: 'secondary',
-    order: 7,
+    order: 5,
     position: 'left',
   },
   {

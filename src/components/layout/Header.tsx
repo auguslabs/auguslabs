@@ -59,7 +59,7 @@ export function Header() {
             {/* Icono home (solo el icono, sin texto) */}
             <a 
               href="/" 
-              className="flex items-center justify-center hover:opacity-80 transition-opacity inline-flex"
+              className="flex items-center justify-center hover:opacity-80 transition-opacity"
               aria-label="Go to home"
               style={{
                 width: '30px',
@@ -161,8 +161,8 @@ export function Header() {
               href="/about" 
               className="font-bold transition-colors"
               style={{ 
-                color: '#9b4f07',
-                backgroundColor: isHomePage ? 'white' : 'transparent',
+                color: isHomePage ? 'white' : '#9b4f07',
+                background: isHomePage ? 'linear-gradient(90deg, #07549b 0%, #9b4f07 100%)' : 'transparent',
                 fontSize: 'clamp(0.864rem, 1.728vh, 1.296rem)', // Aumentado 20% adicional (total 44% más)
                 padding: 'clamp(0.5rem, 1vh, 0.75rem)', // Padding uniforme en los 4 lados
                 display: 'inline-flex',
@@ -174,7 +174,8 @@ export function Header() {
                 lineHeight: '1.2',
                 boxSizing: 'border-box',
                 whiteSpace: 'nowrap',
-                borderRadius: '0' // Sin esquinas redondeadas
+                borderRadius: '0',
+                borderBottomRightRadius: '1rem'
               }}
             >
               about
@@ -208,8 +209,8 @@ export function Header() {
               href="/contact" 
               className="font-bold transition-colors"
               style={{ 
-                color: '#9b4f07',
-                backgroundColor: isHomePage ? 'white' : 'transparent',
+                color: isHomePage ? 'white' : '#9b4f07',
+                background: isHomePage ? 'linear-gradient(90deg, #07549b 0%, #9b4f07 100%)' : 'transparent',
                 fontSize: 'clamp(0.864rem, 1.728vh, 1.296rem)', // Aumentado 20% adicional (total 44% más)
                 padding: 'clamp(0.5rem, 1vh, 0.75rem)', // Padding uniforme en los 4 lados
                 display: 'inline-flex',
@@ -221,7 +222,8 @@ export function Header() {
                 lineHeight: '1.2',
                 boxSizing: 'border-box',
                 whiteSpace: 'nowrap',
-                borderRadius: '0' // Sin esquinas redondeadas
+                borderRadius: '0',
+                borderBottomRightRadius: '1rem'
               }}
             >
               contact

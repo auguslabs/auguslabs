@@ -1,4 +1,9 @@
 import React from 'react';
+import {
+  SpeakerWaveIcon,
+  PuzzlePieceIcon,
+  LightBulbIcon,
+} from '@heroicons/react/24/outline';
 
 interface ProcessStep {
   id: string;
@@ -13,6 +18,36 @@ interface ProcessTimelineProps {
 }
 
 export function ProcessTimeline({ steps }: ProcessTimelineProps) {
+  const renderStepIcon = (stepId: string, size: 'desktop' | 'mobile') => {
+    const iconClassName =
+      size === 'desktop'
+        ? 'w-10 h-10 text-[#9b4f07]'
+        : 'w-5 h-5 text-[#9b4f07]';
+    const customIconClassName =
+      size === 'desktop'
+        ? 'w-10 h-10'
+        : 'w-5 h-5';
+
+    switch (stepId) {
+      case 'listen':
+        return <SpeakerWaveIcon className={iconClassName} />;
+      case 'understand':
+        return <PuzzlePieceIcon className={iconClassName} />;
+      case 'propose':
+        return <LightBulbIcon className={iconClassName} />;
+      case 'develop':
+        return (
+          <img
+            src="/icons/ui/code-bracket-photo.svg"
+            alt=""
+            className={customIconClassName}
+          />
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className="w-full">
       {/* Desktop: Horizontal Timeline */}
@@ -29,7 +64,7 @@ export function ProcessTimeline({ steps }: ProcessTimelineProps) {
                   className="w-24 h-24 mx-auto mb-4 rounded-full flex items-center justify-center text-4xl bg-white border-4 shadow-lg"
                   style={{ borderColor: '#07549b' }}
                 >
-                  {step.icon}
+                  {renderStepIcon(step.id, 'desktop') ?? step.icon}
                 </div>
                 
                 {/* Step Content */}
@@ -71,7 +106,7 @@ export function ProcessTimeline({ steps }: ProcessTimelineProps) {
                 className="absolute left-0 w-8 h-8 rounded-full flex items-center justify-center text-xl bg-white border-2 shadow-md -ml-10"
                 style={{ borderColor: '#07549b' }}
               >
-                {step.icon}
+                {renderStepIcon(step.id, 'mobile') ?? step.icon}
               </div>
               
               {/* Step Content */}
